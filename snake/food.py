@@ -10,6 +10,7 @@ app = blessed.Terminal()
 MAX_WIDTH = app.width
 MAX_HEIGHT = app.height
 
+
 # class Food
 class Food:
     # init

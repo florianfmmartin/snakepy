@@ -36,7 +36,7 @@ with app.cbreak(), app.hidden_cursor():
 
     # app loop
     while val != "q":
-        val = app.inkey(timeout = speed)
+        val = app.inkey(timeout=speed)
 
         # change direction
         snake.change(val.code)
@@ -55,7 +55,8 @@ with app.cbreak(), app.hidden_cursor():
             print(app.move(part.y, part.x) + "█",  end="", flush=True)
 
         # print food
-        print(app.move(food.pos.y, food.pos.x) + app.red_on_black + "@", end="", flush=True)
+        print(app.move(food.pos.y, food.pos.x)
+              + app.red_on_black + "@", end="", flush=True)
 
         # food eaten?
         if snake.head.x == food.pos.x and snake.head.y == food.pos.y:
@@ -70,5 +71,8 @@ with app.cbreak(), app.hidden_cursor():
 
         for i in range(0, body_len):
             if i != 0:
-                if snake.head.x == snake.body[i].x and snake.head.y == snake.body[i].y:
+                snake_bool_x = snake.head.x == snake.body[i].x
+                snake_bool_y = snake.head.y == snake.body[i].y
+                if snake_bool_x and snake_bool_y:
                     val = "q"
+
